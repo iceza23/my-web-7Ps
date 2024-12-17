@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>การประเมินภาวะ Compartment Syndrome - 7Ps</title>
+    <style>
+        /* ตั้งค่าสไตล์หลัก */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #cdebf9, #e6f7ff);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 10px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        header img {
+            width: 90%;
+            max-width: 800px;
+            border-radius: 15px;
+            animation: slideDown 2s ease-in-out;
+        }
+
+        /* เพิ่มลูกเล่นการเลื่อนภาพ */
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #004085;
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+
+        select:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+            outline: none;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to right, #007BFF, #00c6ff);
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        #result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.3em;
+            color: #155724;
+            background-color: #d4edda;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        footer {
+            text-align: center;
+            margin: 20px 0;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <!-- ส่วนหัว (Header) -->
+    <header>
+        <img src="S__3743890.jpg" alt="Compartment Syndrome 7Ps">
+    </header>
+
+    <!-- ส่วนแบบประเมิน -->
+    <div class="container">
+        <h1>การประเมินภาวะ Compartment Syndrome</h1>
+        <p style="text-align: center;">กรุณากรอกข้อมูลเพื่อประเมินภาวะความดันในช่องกล้ามเนื้อ (7Ps)</p>
+
+        <!-- ฟอร์มแบบประเมิน -->
+        <form id="assessmentForm">
+            <label>1. ระดับอาการปวด</label>
+            <select id="pain">
+                <option value="0">0 คะแนน (ไม่ปวด)</option>
+                <option value="1">1-3 คะแนน</option>
+                <option value="2">4-6 คะแนน</option>
+                <option value="3">7-10 คะแนน</option>
+            </select>
+
+            <label>2. ความซีดของผิว</label>
+            <select id="pallor">
+                <option value="0">Normal</option>
+                <option value="1">Pale</option>
+                <option value="2">Purple</option>
+            </select>
+
+            <label>3. อุณหภูมิผิดปกติ</label>
+            <select id="temp">
+                <option value="0">Warm</option>
+                <option value="1">Cool</option>
+                <option value="2">Hot</option>
+            </select>
+
+            <label>4. ชีพจร</label>
+            <select id="pulse">
+                <option value="0">คลำได้ปกติ</option>
+                <option value="1">คลำได้เบา</option>
+                <option value="2">คลำไม่ได้</option>
+            </select>
+
+            <label>5. อาการชาที่ผิวหนัง</label>
+            <select id="paresthesia">
+                <option value="0">ไม่มีอาการชา</option>
+                <option value="1">มีอาการชา</option>
+            </select>
+
+            <label>6. การอ่อนแรง</label>
+            <select id="paralysis">
+                <option value="0">ไม่มีอาการอ่อนแรง</option>
+                <option value="2">อ่อนแรง</option>
+                <option value="4">อ่อนแรงมาก</option>
+            </select>
+
+            <label>7. อาการบวม</label>
+            <select id="swelling">
+                <option value="0">ไม่บวม</option>
+                <option value="1">บวมเล็กน้อย</option>
+                <option value="2">บวมมาก</option>
+            </select>
+
+            <!-- ข้อ 8 เพิ่มเติม -->
+            <label>8. เวลาเติมเลือดในเส้นเลือดฝอย (Capillary refill time)</label>
+            <select id="capillaryRefill">
+                <option value="0">น้อยกว่า 2 วินาที</option>
+                <option value="1">2-3 วินาที</option>
+                <option value="2">มากกว่า 3 วินาที</option>
+            </select>
+
+            <button type="button" onclick="calculateScore()">สรุปผลการประเมิน</button>
+        </form>
+
+        <!-- แสดงผลลัพธ์ -->
+        <div id="result"></div>
+    </div>
+
+    <!-- ส่วนท้าย -->
+    <footer>
+        &copy; 2024 การประเมินภาวะ Compartment Syndrome
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function calculateScore() {
+            const scores = [
+                parseInt(document.getElementById("pain").value),
+                parseInt(document.getElementById("pallor").value),
+                parseInt(document.getElementById("temp").value),
+                parseInt(document.getElementById("pulse").value),
+                parseInt(document.getElementById("paresthesia").value),
+                parseInt(document.getElementById("paralysis").value),
+                parseInt(document.getElementById("swelling").value),
+                parseInt(document.getElementById("capillaryRefill").value) // เพิ่มคะแนนสำหรับ Capillary refill time
+            ];
+
+            const totalScore = scores.reduce((a, b) => a + b, 0);
+            let resultText = "";
+
+            if (totalScore === 0) resultText = "ผลการประเมิน: ปกติ";
+            else if (totalScore <= 7) resultText = "ผลการประเมิน: Mild Monitoring (แจ้งแพทย์)";
+            else if (totalScore <= 14) resultText = "ผลการประเมิน: Moderate Monitoring (แจ้งแพทย์)";
+            else resultText = "ผลการประเมิน: Severe Monitoring (แจ้งแพทย์ทันที!)";
+
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `คะแนนรวม: ${totalScore} คะแนน<br>${resultText}`;
+            resultDiv.style.display = "block";
+        }
+    </script>
+</body>
+</html>
+
+
